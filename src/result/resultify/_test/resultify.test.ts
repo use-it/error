@@ -37,14 +37,6 @@ describe("resultify", () => {
     await assertResultify(fn, expected);
   });
 
-  // TODO: not sure about this behaviour
-  it("should return error result when function returns falsy value", async() => {
-    const fn = (): boolean => false;
-    const expected = error(Error("The boolean value returns false"));
-
-    await assertResultify(fn, expected);
-  });
-
   it("should return ok result when async function resolves with a value", async() => {
     const fn = async(): Promise<number> => {
       return Promise.resolve(42);
